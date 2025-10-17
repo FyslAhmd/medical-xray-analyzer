@@ -234,8 +234,8 @@ st.markdown("""
 # Animated Header
 st.markdown("""
     <div class="main-header">
-        <h1>🔬 Medical Image Preprocessor</h1>
-        <p>✨ Professional AI-powered enhancement for medical imaging ✨</p>
+        <h1>Medical Image Preprocessor</h1>
+        <p>Professional image enhancement for medical xray imaging</p>
     </div>
 """, unsafe_allow_html=True)
 
