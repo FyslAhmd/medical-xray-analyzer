@@ -245,37 +245,37 @@ st.sidebar.markdown("---")
 
 # Method options with emojis
 method_options = {
-    "🧹 Text Removal": {
+    "Text Removal": {
         "name": "1. Text Removal (Inpainting)",
         "description": "Removes bright text/annotations from images using threshold detection and inpainting.",
         "icon": "🧹",
         "color": "#FF6B6B"
     },
-    "✨ BPDFHE": {
+    "BPDFHE": {
         "name": "2. BPDFHE (Brightness Preserving)",
         "description": "Advanced fuzzy logic-based histogram equalization that preserves brightness. Best for chest X-rays.",
         "icon": "✨",
         "color": "#4ECDC4"
     },
-    "🎨 CLAHE Complete": {
-        "name": "3. CLAHE + Constant + Gamma + Histogram",
+    "CLAHE Complete": {
+        "name": "3. CLAHE, Constant, Gamma with Histogram",
         "description": "4-step pipeline: CLAHE → Contrast adjustment → Gamma correction → Histogram equalization.",
         "icon": "🎨",
         "color": "#95E1D3"
     },
-    "⚡ CLAHE + Gamma": {
-        "name": "4. CLAHE + Gamma Correction",
+    "CLAHE + Gamma": {
+        "name": "4. CLAHE with Gamma Correction",
         "description": "Simple 2-step enhancement with CLAHE and gamma correction. Fast and effective.",
         "icon": "⚡",
         "color": "#F38181"
     },
-    "🔍 CLAHE + LBP": {
-        "name": "5. CLAHE-YCrCb + LBP",
+    "CLAHE + LBP": {
+        "name": "5. CLAHE-YCrCb with LBP",
         "description": "CLAHE in YCrCb color space + Local Binary Pattern texture extraction for ML features.",
         "icon": "🔍",
         "color": "#AA96DA"
     },
-    "📊 Histogram EQ": {
+    "Histogram EQ": {
         "name": "6. Histogram Equalization",
         "description": "Basic global histogram equalization for quick contrast enhancement.",
         "icon": "📊",
