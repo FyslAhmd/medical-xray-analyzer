@@ -477,37 +477,37 @@ st.sidebar.markdown("---")
 
 # Method options with emojis
 method_options = {
-    "🧹 Text Removal": {
+    "Text Removal": {
         "name": "1. Text Removal (Inpainting)",
         "description": "Removes bright text/annotations from images using threshold detection and inpainting.",
         "icon": "🧹",
         "color": "#FF6B6B"
     },
-    "✨ BPDFHE": {
+    "BPDFHE": {
         "name": "2. BPDFHE (Brightness Preserving)",
         "description": "Advanced fuzzy logic-based histogram equalization that preserves brightness. Best for chest X-rays.",
         "icon": "✨",
         "color": "#4ECDC4"
     },
-    "🎨 CLAHE Complete": {
+    "CLAHE Complete": {
         "name": "3. CLAHE + Constant + Gamma + Histogram",
         "description": "4-step pipeline: CLAHE → Contrast adjustment → Gamma correction → Histogram equalization.",
         "icon": "🎨",
         "color": "#95E1D3"
     },
-    "⚡ CLAHE + Gamma": {
+    "CLAHE + Gamma": {
         "name": "4. CLAHE + Gamma Correction",
         "description": "Simple 2-step enhancement with CLAHE and gamma correction. Fast and effective.",
         "icon": "⚡",
         "color": "#F38181"
     },
-    "🔍 CLAHE + LBP": {
+    "CLAHE + LBP": {
         "name": "5. CLAHE-YCrCb + LBP",
         "description": "CLAHE in YCrCb color space + Local Binary Pattern texture extraction for ML features.",
         "icon": "🔍",
         "color": "#AA96DA"
     },
-    "📊 Histogram EQ": {
+    "Histogram EQ": {
         "name": "6. Histogram Equalization",
         "description": "Basic global histogram equalization for quick contrast enhancement.",
         "icon": "📊",
@@ -806,14 +806,18 @@ if uploaded_file is not None:
                 processed = remove_text(img_bgr)
             elif "BPDFHE" in method:
                 processed = bpdfhe_preprocessing(img_bgr)
-            elif "CLAHE, Constant, Gamma with Histogram" in method:
+            elif "CLAHE + Constant + Gamma + Histogram" in method:
                 processed = clahe_constant_gamma_hist(img_bgr)
-            elif "CLAHE with Gamma Correction" in method:
+            elif "CLAHE + Gamma Correction" in method:
                 processed = clahe_gamma(img_bgr)
-            elif "CLAHE-YCrCb with LBP" in method:
+            elif "CLAHE-YCrCb + LBP" in method:
                 processed = clahe_ycrcb_lbp(img_bgr)
             elif "Histogram Equalization" in method:
                 processed = histogram_equalization(img_bgr)
+            else:
+                # Fallback - should never happen, but just in case
+                st.error(f"Unknown method: {method}")
+                processed = img_bgr
             
             # Convert back to RGB for display
             processed_rgb = cv2.cvtColor(processed, cv2.COLOR_BGR2RGB)
