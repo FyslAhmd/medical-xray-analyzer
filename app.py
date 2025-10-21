@@ -228,6 +228,238 @@ st.markdown("""
     [data-testid="stHeader"] {
         background: #ffffff;
     }
+    
+    /* Mobile menu icon - make it black/visible */
+    button[kind="header"] {
+        color: #1a1a1a !important;
+        z-index: 9999999 !important;
+        position: relative !important;
+    }
+    
+    button[kind="header"] svg {
+        fill: #1a1a1a !important;
+        stroke: #1a1a1a !important;
+    }
+    
+    /* Mobile hamburger menu */
+    [data-testid="collapsedControl"] {
+        color: #1a1a1a !important;
+        z-index: 9999999 !important;
+        position: relative !important;
+    }
+    
+    [data-testid="collapsedControl"] svg {
+        fill: #1a1a1a !important;
+    }
+    
+    /* Header toolbar needs high z-index */
+    [data-testid="stHeader"] {
+        z-index: 9999999 !important;
+        position: relative !important;
+    }
+    
+    [data-testid="stToolbar"] {
+        z-index: 9999999 !important;
+        position: relative !important;
+    }
+    
+    /* MOBILE RESPONSIVE STYLES */
+    @media screen and (max-width: 768px) {
+        /* Remove ALL horizontal scrolling */
+        html, body {
+            overflow-x: hidden !important;
+            max-width: 100vw !important;
+        }
+        
+        .main {
+            padding: 4rem 0.5rem 3rem 0.5rem !important;
+            overflow-x: hidden !important;
+            max-width: 100vw !important;
+        }
+        
+        .block-container {
+            padding: 1rem 0.5rem 2rem 0.5rem !important;
+            max-width: 100vw !important;
+            padding-top: 5rem !important;
+        }
+        
+        /* Smaller header on mobile */
+        .main-header {
+            padding: 1rem !important;
+            margin-top: 1rem !important;
+            margin-bottom: 1rem !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
+        
+        .main-header h1 {
+            font-size: 1.5rem !important;
+        }
+        
+        .main-header p {
+            font-size: 0.85rem !important;
+        }
+        
+        /* Force all elements to fit screen */
+        * {
+            max-width: 100vw !important;
+            box-sizing: border-box !important;
+        }
+        
+        /* Metrics row - FORCE single row without scroll */
+        div[data-testid="column"] {
+            min-width: 0 !important;
+            padding: 0 0.2rem !important;
+        }
+        
+        /* Make metrics tiny to fit */
+        div[data-testid="stMetric"] {
+            padding: 0.3rem 0.1rem !important;
+            margin: 0 !important;
+        }
+        
+        div[data-testid="stMetricValue"] {
+            font-size: 0.75rem !important;
+            line-height: 1.2 !important;
+            white-space: normal !important;
+            word-break: break-word !important;
+        }
+        
+        div[data-testid="stMetricLabel"] {
+            font-size: 0.65rem !important;
+            line-height: 1.1 !important;
+            white-space: normal !important;
+            word-break: break-word !important;
+        }
+        
+        /* Adjust card padding */
+        .image-card {
+            padding: 0.75rem !important;
+            margin-bottom: 0.75rem !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
+        
+        /* Smaller buttons */
+        .stButton>button {
+            font-size: 0.9rem !important;
+            padding: 0.6rem 1rem !important;
+        }
+        
+        .stDownloadButton>button {
+            font-size: 0.85rem !important;
+            padding: 0.6rem 1rem !important;
+        }
+        
+        /* Reduce file uploader padding */
+        [data-testid="stFileUploader"] {
+            padding: 0.75rem !important;
+        }
+        
+        /* Images */
+        .stImage {
+            max-width: 100% !important;
+        }
+        
+        .stImage img {
+            max-width: 100% !important;
+            width: 100% !important;
+            height: auto !important;
+        }
+        
+        /* Sidebar as overlay - doesn't push content */
+        [data-testid="stSidebar"] {
+            position: fixed !important;
+            left: 0 !important;
+            top: 0 !important;
+            height: 100vh !important;
+            width: 85% !important;
+            max-width: 320px !important;
+            z-index: 999998 !important;
+            box-shadow: 2px 0 15px rgba(0, 0, 0, 0.2) !important;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out !important;
+        }
+        
+        /* When sidebar is open */
+        [data-testid="stSidebar"][aria-expanded="true"] {
+            transform: translateX(0) !important;
+        }
+        
+        /* Overlay backdrop when sidebar is open */
+        [data-testid="stSidebar"]::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+        
+        [data-testid="stSidebar"][aria-expanded="true"]::before {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        /* Main content should not be pushed */
+        .main .block-container {
+            padding-left: 1rem !important;
+            padding-right: 1rem !important;
+            max-width: 100% !important;
+        }
+        
+        /* Success banner */
+        .success-banner {
+            font-size: 0.95rem;
+            padding: 1rem;
+        }
+        
+        /* Images full width on mobile */
+        .stImage img {
+            width: 100% !important;
+            height: auto !important;
+        }
+    }
+    
+    /* Tablet responsive */
+    @media screen and (min-width: 769px) and (max-width: 1024px) {
+        .main {
+            padding: 1rem 1.5rem;
+        }
+        
+        .main-header h1 {
+            font-size: 2.5rem;
+        }
+        
+        .main-header p {
+            font-size: 1.1rem;
+        }
+    }
+    
+    /* Small mobile devices */
+    @media screen and (max-width: 480px) {
+        .main-header h1 {
+            font-size: 1.5rem;
+        }
+        
+        .main-header p {
+            font-size: 0.85rem;
+        }
+        
+        .stButton>button {
+            font-size: 0.9rem;
+            padding: 0.6rem 1rem;
+        }
+        
+        .image-card {
+            padding: 0.75rem;
+        }
+    }
     </style>
 """, unsafe_allow_html=True)
 
@@ -574,11 +806,11 @@ if uploaded_file is not None:
                 processed = remove_text(img_bgr)
             elif "BPDFHE" in method:
                 processed = bpdfhe_preprocessing(img_bgr)
-            elif "CLAHE + Constant + Gamma + Histogram" in method:
+            elif "CLAHE, Constant, Gamma with Histogram" in method:
                 processed = clahe_constant_gamma_hist(img_bgr)
-            elif "CLAHE + Gamma Correction" in method:
+            elif "CLAHE with Gamma Correction" in method:
                 processed = clahe_gamma(img_bgr)
-            elif "CLAHE-YCrCb + LBP" in method:
+            elif "CLAHE-YCrCb with LBP" in method:
                 processed = clahe_ycrcb_lbp(img_bgr)
             elif "Histogram Equalization" in method:
                 processed = histogram_equalization(img_bgr)
@@ -665,22 +897,64 @@ else:
 
 # Footer
 st.markdown("---")
-st.markdown("""
-    <div style='text-align: center; padding: 2.5rem; background: #ffffff; border-radius: 16px; 
-                margin-top: 2rem; border: 2px solid #e0e6ed;'>
-        <h3 style='color: #667eea; margin-bottom: 1rem; font-weight: 700;'>🔬 Medical Image Preprocessor</h3>
-        <p style='color: #2d3748; margin-bottom: 0.5rem; font-size: 1rem;'>
-            Professional AI-powered image enhancement for medical imaging
-        </p>
-        <p style='color: #718096; font-size: 0.9rem;'>
-            Built with ❤️ using Streamlit | © 2025 All Rights Reserved
-        </p>
-        <div style='margin-top: 1.5rem;'>
-            <span style='background: #667eea; 
-                         color: white; padding: 0.6rem 1.2rem; border-radius: 20px; 
-                         font-size: 0.85rem; font-weight: 600; letter-spacing: 0.5px;'>
-                v1.0.0
-            </span>
+st.markdown("<br>", unsafe_allow_html=True)
+
+# Footer content
+col1, col2, col3 = st.columns([1, 2, 1])
+with col2:
+    # Social Links Row
+    link_col1, link_col2, link_col3, link_col4 = st.columns(4)
+    
+    with link_col1:
+        st.markdown("""
+            <a href='https://github.com/sabbir-hossain-durjoy' target='_blank' style='text-decoration: none;'>
+                <div style='text-align: center; background: #f7fafc; padding: 0.8rem; border-radius: 10px; 
+                           border: 1px solid #e0e6ed; transition: all 0.3s;'>
+                    <div style='font-size: 1.5rem; margin-bottom: 0.3rem;'>💻</div>
+                    <div style='font-size: 0.75rem; font-weight: 600; color: #1a1a1a;'>GitHub</div>
+                </div>
+            </a>
+        """, unsafe_allow_html=True)
+    
+    with link_col2:
+        st.markdown("""
+            <a href='https://www.linkedin.com/in/sabbir-hossain-durjoy-9732aa379' target='_blank' style='text-decoration: none;'>
+                <div style='text-align: center; background: #f7fafc; padding: 0.8rem; border-radius: 10px; 
+                           border: 1px solid #e0e6ed; transition: all 0.3s;'>
+                    <div style='font-size: 1.5rem; margin-bottom: 0.3rem;'>💼</div>
+                    <div style='font-size: 0.75rem; font-weight: 600; color: #0077b5;'>LinkedIn</div>
+                </div>
+            </a>
+        """, unsafe_allow_html=True)
+    
+    with link_col3:
+        st.markdown("""
+            <a href='https://scholar.google.com/citations?user=kutVEGUAAAAJ&hl=en' target='_blank' style='text-decoration: none;'>
+                <div style='text-align: center; background: #f7fafc; padding: 0.8rem; border-radius: 10px; 
+                           border: 1px solid #e0e6ed; transition: all 0.3s;'>
+                    <div style='font-size: 1.5rem; margin-bottom: 0.3rem;'>🎓</div>
+                    <div style='font-size: 0.75rem; font-weight: 600; color: #4285f4;'>Scholar</div>
+                </div>
+            </a>
+        """, unsafe_allow_html=True)
+    
+    with link_col4:
+        st.markdown("""
+            <a href='mailto:hossain15-4724@diu.edu.bd' style='text-decoration: none;'>
+                <div style='text-align: center; background: #f7fafc; padding: 0.8rem; border-radius: 10px; 
+                           border: 1px solid #e0e6ed; transition: all 0.3s;'>
+                    <div style='font-size: 1.5rem; margin-bottom: 0.3rem;'>📧</div>
+                    <div style='font-size: 0.75rem; font-weight: 600; color: #ea4335;'>Email</div>
+                </div>
+            </a>
+        """, unsafe_allow_html=True)
+    
+    st.markdown("""
+        <div style='text-align: center; margin-top: 1.5rem;'>
+            <p style='color: #a0aec0; font-size: 0.85rem;'>
+                © 2025 Medical Image Preprocessor | Built with Streamlit
+            </p>
         </div>
-    </div>
-""", unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
+
+st.markdown("<br>", unsafe_allow_html=True)
