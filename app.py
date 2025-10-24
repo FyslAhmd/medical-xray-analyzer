@@ -265,6 +265,73 @@ st.markdown("""
     
     /* MOBILE RESPONSIVE STYLES */
     @media screen and (max-width: 768px) {
+        /* FORCE mobile menu icon to be visible */
+        button[kind="header"] {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            color: #1a1a1a !important;
+            background: rgba(255, 255, 255, 0.95) !important;
+            border-radius: 8px !important;
+            padding: 0.5rem !important;
+            margin: 0.5rem !important;
+            z-index: 99999999 !important;
+            position: fixed !important;
+            top: 0.5rem !important;
+            left: 0.5rem !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2) !important;
+        }
+        
+        button[kind="header"] svg {
+            fill: #1a1a1a !important;
+            stroke: #1a1a1a !important;
+            width: 24px !important;
+            height: 24px !important;
+            display: block !important;
+        }
+        
+        /* Collapsed control button (hamburger menu) */
+        [data-testid="collapsedControl"] {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            color: #1a1a1a !important;
+            background: rgba(255, 255, 255, 0.95) !important;
+            border-radius: 8px !important;
+            padding: 0.5rem !important;
+            margin: 0.5rem !important;
+            z-index: 99999999 !important;
+            position: fixed !important;
+            top: 0.5rem !important;
+            left: 0.5rem !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2) !important;
+        }
+        
+        [data-testid="collapsedControl"] svg {
+            fill: #1a1a1a !important;
+            stroke: #1a1a1a !important;
+            width: 24px !important;
+            height: 24px !important;
+        }
+        
+        /* Header toolbar - make sure it's visible */
+        [data-testid="stHeader"] {
+            display: block !important;
+            visibility: visible !important;
+            background: transparent !important;
+            z-index: 99999999 !important;
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+        }
+        
+        [data-testid="stToolbar"] {
+            display: block !important;
+            visibility: visible !important;
+            z-index: 99999999 !important;
+        }
+        
         /* Remove ALL horizontal scrolling */
         html, body {
             overflow-x: hidden !important;
